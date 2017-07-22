@@ -7,7 +7,15 @@ Rails.application.routes.draw do
   patch "author/:id" => "authors#update"
   delete "author/:id" => "authors#destroy"
 
-  get 'books' => 'books#index'
+  get  'books' => 'books#index'
+  get  'books/new' => 'books#new', as: :new_book
+  post 'books'     => 'books#create'
+  get  'book/:id/edit' => 'books#edit', as: :edit_book
+
+  patch "book/:id" => "books#update", as: :book
+  delete "book/:id" => "book#destroy"
+
+
   root to: "home#index"
 
 
