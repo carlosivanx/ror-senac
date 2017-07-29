@@ -1,11 +1,21 @@
 class AuthorsController < ApplicationController
   before_action :set_author, only: [:show, :edit, :update, :destroy]
 
+
+
+
   def index
-    @authors = Author.paginate(page: params[:page], per_page: 5)
+    #  @authors = Author.paginate(page: params[:page], per_page: 5)
+    if params[:search].present?
+       @authors = Author.where("name like '%#{params[:search]}%' ")
+    else
+       @authors = Author.all
+    end
   end
 
-  def show;end
+  def
+    show;
+  end
 
   def new
     @author = Author.new

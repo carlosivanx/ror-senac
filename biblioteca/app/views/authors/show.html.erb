@@ -1,4 +1,4 @@
-<h1><%= @author.name %></h1>
+<h1> Autor: <%= @author.name %></h1>
 
 <ul>
 <% if @author.books.empty? %>
@@ -9,3 +9,8 @@
   <% end %>
   </ul>
 <% end %>
+
+
+<%= link_to "Voltar", authors_path,class: 'btn btn-xs btn-primary' %>
+<%= link_to "Editar", edit_author_path(@author.id), class: 'btn btn-xs btn-primary' %>
+<%= link_to "Remover", author_path(@author.id), method: :delete, data: {confirm: "Deseja apagar este Autor? " }, class:  'btn btn-xs btn-danger' %>

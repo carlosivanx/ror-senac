@@ -1,5 +1,26 @@
 <h1>Lista de Autores</h1>
 
+
+<div class = "row">
+    <%= form_tag authors_path, method: :get do %>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Pesquisar" %>
+    <% end %>
+</div>
+
+
+
+<% if params[:search].present? %>
+      <div class = "row">
+         <div class= "alert alert-success">
+             <%= @authors.size %>  Resultados encontrados.
+         </div>
+      </div>
+<% end %>
+
+
+
+
 <% if flash[:notice] %>
 <div class="alert alert-success">
   <%= flash[:notice] %>
@@ -18,15 +39,16 @@
     <td><%= author.id %></td>
     <td><%= author.name %></td>
     <td><%= author.birthdate %></td>
-    <td><%= link_to "Detalhes", author_path(author.id) %></td>
-    <td><%= link_to "Editar", edit_author_path(author.id) %></td>
-    <td><%= link_to "Deletar", author_path(author.id), method: :delete, data: {confirm: "Voce realmente deseja apagar este autor?"} %></td>
+    <td><%= link_to "Detalhes", author_path(author.id), class: "btn btn-xs btn-success" %>
+        <%= link_to "Editar", edit_author_path(author.id), class: "btn btn-xs btn-primary" %>
+      <!-- <td><%= link_to "Deletar", author_path(author.id), method: :delete, data: {confirm: "Voce realmente deseja apagar este autor?"} %></td> -->
+      <%= link_to( "Remover", author_path(author.id), {method: :delete, class: "btn btn-xs btn-danger",
+      data: {confirm: "Deseja realmente remover este Autor?" } }) %>
+    </td>
+
   </tr>
   <% end %>
 </table>
 
-<div class="row">
-  <%= will_paginate @authors %>
-</div>
 
 <%= link_to "Novo autor", new_author_path, class: "btn btn-primary" %>
