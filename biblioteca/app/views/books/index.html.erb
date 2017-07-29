@@ -1,18 +1,30 @@
 <h1>Lista de Livros</h1>
 
-<div class = "row">
+<div class="row">
+
+
+<div class = "col-sm-6">
     <%= form_tag books_path, method: :get do %>
-      <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag "Pesquisar" %>
+      <div class="input-group">
+         <%= text_field_tag :search, params[:search], class: 'form-control' %>
+         <span class="input-group-btn" >
+            <%= submit_tag "Pesquisar", class: "btn btn-primary" %>
+         </span>
+      </div>
     <% end %>
 </div>
+
+</div>
+
 
 
 <% if params[:search].present? %>
       <div class = "row">
-         <div class= "alert alert-success">
-             <%= @books.size %>  Resultados encontrados.
-         </div>
+          <div class = "col-sm-6">
+              <div class= "alert alert-success">
+                  <%= @books.size %>  Resultados encontrados.
+              </div>
+          </div>
       </div>
 <% end %>
 
@@ -22,6 +34,12 @@
     <th>Titulo</th>
     <th>Ano de Publicação</th>
     <th>Autor</th>
+    <td> Links </td>
+
+    <td><%  %></td>
+    <td><%   %></td>
+
+
   </tr>
 
   <% @books.each do |book| %>
