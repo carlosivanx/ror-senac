@@ -1,69 +1,31 @@
     1  su
     2  sudo su
     3  exit
-    4  curl -sSL https://get.rvm.io | bash -s stable
-    5  source ~/.rvm/scripts/rvm
-    6  rvm list
-    7  rvm install 2.4.0
-    8  rvm use 2.4.0 --default
-    9  ruby -v
-   10  git --version
-   11  sudo apt-get install git-core
-   12  sudo apt-get mysql-server libmysqlclient-dev
-   13  sudo apt-get install mysql-server libmysqlclient-dev
-   14  history
-   15  mysql -u root -proot
-   16  gem -v
-   17  gem list
-   18  git config --global user.name "Carlos Ivan"
-   19  git config --global user.email "carlosivanx@hotmail.com"
-   20  ssh-keygen -t rsa -C "carlosivanx@hotmail.com"
-   21  who
-   22  pwd
-   23  cat ~/.ssh/id_rsa.pub
-   24  clear
-   25  history
-   26  ssh -T git@github.com
-   27  sudo apt-get install openssh-server
-   28  ssh -T git@github.com
-   29  mkdir Projetos
-   30  cd Projetos
-   31  git clone https://github.com/carlosivanx/ror-senac.git
-   32  ls ror-senac
-   33  cd ror-senac/
-   34  cd biblioteca/
-   35  pwe
-   36  pee
-   37  pwd
-   38  ls
-   39  clear
-   40  ls
-   41  clear
-   42  ls -la
-   43  gem install bundler
-   44  bundle -v
-   45  bundle
-   46  bundle info
-   47  clear
-   48  gem list
-   49  gem list help
-   50  gem list ?
-   51  gem list help
-   52  clear
-   53  history
-   54  history >ivan.txt
-   55  cat ivan.txt
-   56  clear
-   57  sudo apt-get install nodejs
-   58  rails s
-   59  sudo dpkg -i /Downloads/atom-amd64.deb
-   60  sudo apt-get install dpkg -i /Downloads/atom-amd64.deb
-   61  sudo apt-get install -f
-   62  sudo dpkg -i /Downloads/atom-amd64.deb
-   63  sudo apt-get install dpkg -i /Downloads/atom-amd64.deb
-   64  sudo apt-get install -f
-   65  sudo dpkg -i /Downloads/atom-amd64.deb
-   66  sudo dpkg -i ~/Downloads/atom-amd64.deb
-   67  sudo apt-get install -f
-   68  atom
-   69  history >ivan.txt
+    4  ruby -v
+    5  source ~/.bashrc 
+    6  vim ~/.bashrc 
+    7  nano ~/.bashrc 
+    8  ruby -v
+    9  cd projetos
+   10  ls
+   11  cd Projetos
+   12  rake db:migrate db:seed
+   13  lks
+   14  ls
+   15  cd ror-senac
+   16  cd biblioteca
+   17  rake db:migrate db:seed
+   18  rails r
+   19  rails s
+   20  rake db:seed
+   21  rails s
+   22  exit
+   23  rails s
+   24  git diff
+   25  git add .
+   26  git status
+   27  git commit -m "Alteracoes da aula do dia 29 de julho" -m "adicionado o botao de remover na lista de livros" -m adicionado a tela de show ao crud de livros"
+   28  git commit -m "Alteracoes da aula do dia 29 de julho" -m "adicionado o botao de remover na lista de livros" -m "adicionado a tela de show ao crud de livros"
+   29  git push origin master
+   30  history
+   31  history > ivan.txt
