@@ -7,9 +7,9 @@ class AuthorsController < ApplicationController
   def index
     #  @authors = Author.paginate(page: params[:page], per_page: 5)
     if params[:search].present?
-       @authors = Author.where("name like '%#{params[:search]}%' ")
+       @authors = Author.where("name like '%#{params[:search]}%' ").paginate(page: params[:page], per_page: 2)
     else
-       @authors = Author.all
+       @authors = Author.paginate(page: params[:page], per_page: 2)
     end
   end
 
