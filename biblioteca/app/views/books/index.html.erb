@@ -1,5 +1,6 @@
 <h1>Lista de Livros</h1>
 
+<<<<<<< HEAD
 <div class="row">
 
 
@@ -30,23 +31,53 @@
 
 
 <table class = "table table-striped">
+=======
+<div class="col-sm-6">
+<%= form_tag books_path, method: :get do %>
+  <div class="input-group">
+  <%= text_field_tag :search, params[:search], class: 'form-control' %>
+  <span class="input-group-btn">
+    <%= submit_tag "Pesquisar", class: 'btn btn-primary' %>
+  </span>
+  </div>
+<% end %>
+</div>
+
+<% if params[:search].present? %>
+<div class="row">
+  <div class="alert alert-success">
+    <%= @books.size %> resultados encontrados.
+  </div>
+</div>
+<% end %>
+
+
+<table class="table table-striped">
+>>>>>>> 591b2ac9269ab7abd01edc3f85ebb94f87ae6fd7
   <tr>
+    <th></th>
     <th>Titulo</th>
     <th>Ano de Publicação</th>
     <th>Autor</th>
+<<<<<<< HEAD
     <td> Links </td>
 
     <td><%  %></td>
     <td><%   %></td>
 
 
+=======
+    <th></th>
+>>>>>>> 591b2ac9269ab7abd01edc3f85ebb94f87ae6fd7
   </tr>
 
   <% @books.each do |book| %>
   <tr>
+    <td><%= image_tag book.cover.url(:thumb) %></td>
     <td><%= book.title %></td>
     <td><%= book.publication_year %></td>
     <td><%= link_to book.author.name, author_path(book.author.id) %></td>
+<<<<<<< HEAD
 
     <td>
       <%= link_to "Editar", edit_book_path(book.id), class: "btn btn-xs btn-primary" %>
@@ -62,3 +93,21 @@
 <%= will_paginate @books %>
 
 <%= link_to("Novo Livro", new_book_path, class: "btn btn-primary") %>
+=======
+    <td>
+      <%= link_to "Editar", edit_book_path(book.id), class: 'btn btn-xs btn-primary' %>
+      <%= link_to "Ver Detalhes", book_path(book.id), class: 'btn btn-xs btn-success' %>
+      <%= link_to "Remover", book_path(book.id), method: :delete, class: 'btn btn-xs btn-danger',
+        data: { confirm: "Deseja realmente remover este livro"} %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+<div class="row">
+  <%= will_paginate @books %>
+</div>
+
+
+<%= link_to("Novo livro", new_book_path, class: "btn btn-primary") %>
+>>>>>>> 591b2ac9269ab7abd01edc3f85ebb94f87ae6fd7

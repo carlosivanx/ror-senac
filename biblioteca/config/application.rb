@@ -14,6 +14,10 @@ module Biblioteca
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+<<<<<<< HEAD
     
+=======
+    # config.i18n.default_locale = "pt-BR"
+>>>>>>> 591b2ac9269ab7abd01edc3f85ebb94f87ae6fd7
   end
 end

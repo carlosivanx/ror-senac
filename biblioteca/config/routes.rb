@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   patch "author/:id" => "authors#update"
   delete "author/:id" => "authors#destroy"
 
+<<<<<<< HEAD
   get  'books' => 'books#index'
   get  'books/new' => 'books#new', as: :new_book
   post 'books'     => 'books#create'
@@ -16,6 +17,16 @@ Rails.application.routes.draw do
   delete "book/:id" => "books#destroy"
 
 
+=======
+  get 'books' => 'books#index'
+  get 'book/new' => 'books#new', as: :new_book
+  post 'books' => 'books#create'
+  get 'book/:id/edit' => 'books#edit', as: :edit_book
+  get 'book/:id' => 'books#show', as: :book
+  patch "book/:id" => "books#update"
+  delete "book/:id" => "books#destroy"
+  # resources :books
+>>>>>>> 591b2ac9269ab7abd01edc3f85ebb94f87ae6fd7
   root to: "home#index"
 
 

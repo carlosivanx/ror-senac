@@ -1,4 +1,4 @@
-<h1>Lista de Autores</h1>
+<h1><%= I18n.t(:list_authors) %></h1>
 
 
 <div class = "row">
@@ -27,6 +27,20 @@
 </div>
 <% end %>
 
+<%= form_tag authors_path, method: :get do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Pesquisar" %>
+<% end %>
+
+<% if params[:search].present? %>
+  <div class="alert alert-success">
+    <%= @authors.size %> resultados encontrados.
+  </div>
+<% end %>
+
+<div class="row">
+
+
 <table class="table table-striped">
   <tr>
     <th>#</th>
@@ -38,6 +52,7 @@
   <tr>
     <td><%= author.id %></td>
     <td><%= author.name %></td>
+<<<<<<< HEAD
     <td><%= author.birthdate %></td>
     <td><%= link_to "Detalhes", author_path(author.id), class: "btn btn-xs btn-success" %>
         <%= link_to "Editar", edit_author_path(author.id), class: "btn btn-xs btn-primary" %>
@@ -51,5 +66,21 @@
 </table>
 
 <%= will_paginate @authors %>
+=======
+    <td><%= I18n.l author.birthdate unless author.birthdate.nil? %></td>
+    <td><%= I18n.l author.updated_at %></td>
+    <td><%= I18n.l author.created_at %></td>
+    <td><%= link_to "Detalhes", author_path(author.id), class: 'btn btn-xs btn-primary' %></td>
+    <td><%= link_to "Editar", edit_author_path(author.id), class: 'btn btn-xs btn-success' %></td>
+    <td><%= link_to "Deletar", author_path(author.id), method: :delete,
+        data: {confirm: "Voce realmente deseja apagar este autor?"}, class: 'btn btn-xs btn-danger' %></td>
+  </tr>
+  <% end %>
+</table>
+</div>
+>>>>>>> 591b2ac9269ab7abd01edc3f85ebb94f87ae6fd7
+
+<%= will_paginate @authors %>
+
 
 <%= link_to "Novo autor", new_author_path, class: "btn btn-primary" %>

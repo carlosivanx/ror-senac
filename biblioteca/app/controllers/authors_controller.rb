@@ -5,11 +5,18 @@ class AuthorsController < ApplicationController
 
 
   def index
+<<<<<<< HEAD
     #  @authors = Author.paginate(page: params[:page], per_page: 5)
     if params[:search].present?
        @authors = Author.where("name like '%#{params[:search]}%' ").paginate(page: params[:page], per_page: 2)
     else
        @authors = Author.paginate(page: params[:page], per_page: 2)
+=======
+    if params[:search]
+      @authors = Author.where("name like '%#{params[:search]}%'").paginate(page: params[:page], per_page: 2)
+    else
+      @authors = Author.paginate(page: params[:page], per_page: 2)
+>>>>>>> 591b2ac9269ab7abd01edc3f85ebb94f87ae6fd7
     end
   end
 

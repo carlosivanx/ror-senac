@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 
 <% if @book.errors.any? %>
 <h2><%= @book.errors.count %> erros encontrado ao salvar o livro:</h2>
+=======
+<% if @book.errors.any? %>
+<h2><%= @book.errors.count %> erros encontrado ao salvar livro:</h2>
+>>>>>>> 591b2ac9269ab7abd01edc3f85ebb94f87ae6fd7
 
 <ul>
   <% @book.errors.full_messages.each do |message| %>
@@ -9,6 +14,7 @@
 </ul>
 <% end %>
 
+<<<<<<< HEAD
 
 <%= form_for @book, html: {class: "form-horizontal"} do |f| %>
    <div class="form-group">
@@ -43,4 +49,57 @@
 
 
 
+=======
+<%= form_for @book, html: {class: 'form-horizontal'} do |f| %>
+  <div class="form-group">
+    <%= f.label :title, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-9">
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :publication_year, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-9">
+      <%= f.text_field :publication_year, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :author_id, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-9">
+      <%= f.select :author_id, options_to_author, { prompt: "Selecione um autor" } %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :resume, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-9">
+      <%= f.text_area :resume, class: 'form-control' %>
+    </div>
+  </div>
+
+
+    <div class="form-group">
+      <%= f.label :total_pages, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+        <%= f.number_field :total_pages, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :cover, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+        <%= image_tag @book.cover.url(:thumb) %>
+        <%= f.file_field :cover, class: 'form-control' %>
+      </div>
+    </div>
+
+
+  <div class="form-group">
+    <div class="col-sm-12 col-sm-offset-3">
+      <%= f.submit "Salvar", class: 'btn btn-primary' %>
+    </div>
+  </div>
+>>>>>>> 591b2ac9269ab7abd01edc3f85ebb94f87ae6fd7
 <% end %>
