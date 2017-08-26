@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  authorize_resource class: :books
+
   def index
 <<<<<<< HEAD
 
